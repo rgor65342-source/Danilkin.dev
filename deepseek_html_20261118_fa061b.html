@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание сайтов и Telegram-ботов | Полоцк</title>
+    <meta name="description" content="Создаю современные сайты и Telegram-ботов. Цены от 299 руб. Консультация бесплатно. Показываю почти готовый результат до оплаты. г. Полоцк.">
+    <meta name="keywords" content="создание сайтов Полоцк, Telegram бот, заказать сайт, лендинг, разработка сайтов">
+    <style>
+        :root {
+            --bg: #0a0f1e;
+            --bg-alt: #111827;
+            --card: #1a2235;
+            --border: #2a3550;
+            --text: #e5e9f0;
+            --muted: #94a3b8;
+            --accent: #22d3ee;
+            --accent-2: #a3e635;
+            --glow: rgba(34, 211, 238, 0.35);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 20px; }
+        a { color: inherit; text-decoration: none; }
+
+        .header {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(10, 15, 30, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            height: 68px; gap: 20px;
+        }
+        .logo { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav { display: flex; gap: 24px; }
+        .nav a { color: var(--muted); font-size: 0.95rem; transition: color 0.2s; }
+        .nav a:hover { color: var(--accent); }
+
+        .btn {
+            display: inline-block; padding: 12px 26px; border-radius: 12px;
+            font-weight: 600; font-size: 0.95rem; border: 1px solid transparent;
+            cursor: pointer; transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+            text-align: center;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            color: #04101a; box-shadow: 0 8px 24px var(--glow);
+        }
+        .btn-primary:hover { box-shadow: 0 12px 32px var(--glow); }
+        .btn-ghost { background: transparent; border-color: var(--border); color: var(--text); }
+        .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-small { padding: 9px 18px; font-size: 0.85rem; }
+        .btn-full { width: 100%; }
+
+        .hero {
+            padding: 90px 0 70px; text-align: center; position: relative;
+            background:
+                radial-gradient(ellipse at 50% -20%, rgba(34,211,238,0.18), transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(163,230,53,0.08), transparent 50%);
+        }
+        .hero-badge {
+            display: inline-block; padding: 8px 18px; border-radius: 999px;
+            background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.3);
+            color: var(--accent); font-size: 0.85rem; font-weight: 600;
+            margin-bottom: 24px; animation: pulse 3s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34,211,238,0.3); }
+            50% { box-shadow: 0 0 0 8px rgba(34,211,238,0); }
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15;
+            font-weight: 800; letter-spacing: -1px; margin-bottom: 20px;
+        }
+        .accent {
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .hero-sub {
+            color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem);
+            max-width: 620px; margin: 0 auto 32px;
+        }
+        .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+        .hero-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; }
+        .hero-stats div { display: flex; flex-direction: column; }
+        .hero-stats strong { font-size: 1.5rem; color: var(--accent); }
+        .hero-stats span { font-size: 0.85rem; color: var(--muted); }
+
+        .section { padding: 80px 0; }
+        .section-alt { background: var(--bg-alt); }
+        .section-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800;
+            text-align: center; margin-bottom: 12px; letter-spacing: -0.5px;
+        }
+        .section-sub { text-align: center; color: var(--muted); margin-bottom: 48px; font-size: 1.05rem; }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 18px; padding: 32px 26px;
+            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .card:hover { transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+        .card-icon { font-size: 2.2rem; margin-bottom: 16px; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .card p { color: var(--muted); font-size: 0.95rem; }
+
+        .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; counter-reset: step; }
+        .step {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 18px; padding: 28px 24px; position: relative;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .step:hover { transform: translateY(-6px); border-color: var(--accent); }
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute; top: -16px; left: 24px;
+            width: 38px; height: 38px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #0ea5e9);
+            color: #04101a; font-weight: 800; font-size: 1rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 6px 18px var(--glow);
+        }
+        .step h3 { font-size: 1.1rem; margin: 8px 0 10px; }
+        .step p { color: var(--muted); font-size: 0.93rem; }
+
+        .guarantee {
+            display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;
+            background: linear-gradient(135deg, rgba(34,211,238,0.08), rgba(163,230,53,0.05));
+            border: 1px solid var(--border); border-radius: 22px; padding: 40px;
+        }
+        .guarantee h2 {
+            font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 800;
+            margin-bottom: 14px; letter-spacing: -0.5px;
+        }
+        .guarantee p { color: var(--muted); font-size: 1rem; margin-bottom: 10px; }
+        .guarantee p:last-child { margin-bottom: 0; }
+        .guarantee-badge {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            text-align: center; gap: 8px; padding: 28px 20px;
+            background: var(--card); border: 1px solid var(--accent); border-radius: 18px;
+            box-shadow: 0 0 0 1px var(--accent), 0 16px 40px rgba(34,211,238,0.12);
+        }
+        .guarantee-badge .icon { font-size: 2.6rem; }
+        .guarantee-badge strong { font-size: 1.05rem; color: var(--accent); }
+        .guarantee-badge span { font-size: 0.85rem; color: var(--muted); }
+
+        .price-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 18px; padding: 32px 26px; text-align: center;
+            position: relative; transition: transform 0.2s, border-color 0.2s;
+            display: flex; flex-direction: column;
+        }
+        .price-card:hover { transform: translateY(-6px); border-color: var(--accent); }
+        .price-card.featured { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent), 0 16px 40px rgba(34,211,238,0.15); }
+        .badge {
+            position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #04101a; font-size: 0.75rem; font-weight: 800;
+            padding: 4px 14px; border-radius: 999px;
+        }
+        .price-card h3 { font-size: 1.2rem; margin-bottom: 6px; }
+        .price-tag {
+            display: inline-block;
+            font-size: 0.8rem; font-weight: 700; color: var(--accent);
+            background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
+            padding: 4px 12px; border-radius: 999px; margin-bottom: 20px;
+        }
+        .price-card ul { list-style: none; text-align: left; margin: 0 auto 24px; max-width: 240px; flex-grow: 1; }
+        .price-card li { padding: 7px 0 7px 24px; position: relative; color: var(--muted); font-size: 0.93rem; }
+        .price-card li::before { content: "✓"; position: absolute; left: 0; color: var(--accent-2); font-weight: 800; }
+        .price-note {
+            text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 32px;
+        }
+        .price-note strong { color: var(--accent); font-size: 1.1rem; }
+
+        .faq { max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+        .faq-item {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 14px; overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .faq-item[open] { border-color: var(--accent); }
+        .faq-item summary {
+            list-style: none; cursor: pointer; padding: 18px 22px;
+            font-weight: 600; font-size: 1rem; display: flex;
+            justify-content: space-between; align-items: center; gap: 16px;
+            transition: color 0.2s;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after {
+            content: "+"; font-size: 1.4rem; color: var(--accent);
+            transition: transform 0.2s; line-height: 1;
+        }
+        .faq-item[open] summary::after { transform: rotate(45deg); }
+        .faq-item summary:hover { color: var(--accent); }
+        .faq-item p {
+            padding: 0 22px 18px; color: var(--muted); font-size: 0.95rem;
+        }
+
+        .contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .contact-info .section-title, .contact-info .section-sub { text-align: left; }
+        .contact-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+        .contact-list li { display: flex; align-items: center; gap: 12px; font-size: 1.05rem; }
+        .contact-list a { color: var(--accent); transition: opacity 0.2s; display: inline-flex; align-items: center; gap: 10px; }
+        .contact-list a:hover { opacity: 0.7; }
+        .contact-list .icon { font-size: 1.3rem; display: inline-flex; align-items: center; justify-content: center; }
+
+        .tg-icon {
+            width: 28px; height: 28px; border-radius: 50%;
+            background: #229ED9; display: inline-flex;
+            align-items: center; justify-content: center; flex-shrink: 0;
+        }
+        .tg-icon svg { width: 16px; height: 16px; fill: #fff; }
+
+        .form {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 18px; padding: 32px;
+            display: flex; flex-direction: column; gap: 16px;
+        }
+        .form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; color: var(--muted); font-weight: 600; }
+        .form input, .form textarea {
+            background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+            padding: 12px 14px; color: var(--text); font-family: inherit;
+            font-size: 0.95rem; transition: border-color 0.2s, box-shadow 0.2s; resize: vertical;
+        }
+        .form input:focus, .form textarea:focus {
+            outline: none; border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(34,211,238,0.15);
+        }
+        .form-note { font-size: 0.85rem; text-align: center; min-height: 1.2em; }
+        .form-note.success { color: var(--accent-2); }
+        .form-note.error { color: #f87171; }
+
+        .footer { border-top: 1px solid var(--border); padding: 28px 0; }
+        .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: var(--muted); font-size: 0.9rem; }
+        .footer a { color: var(--accent); }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+            .contact-wrap { grid-template-columns: 1fr; }
+            .guarantee { grid-template-columns: 1fr; padding: 28px; gap: 24px; }
+            .hero { padding: 60px 0 50px; }
+            .hero-stats { gap: 28px; }
+            .section { padding: 60px 0; }
+            .form { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">Danilkin<span>.dev</span></a>
+            <nav class="nav">
+                <a href="#services">Услуги</a>
+                <a href="#how">Как работаю</a>
+                <a href="#guarantee">Гарантия</a>
+                <a href="#pricing">Цены</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Контакты</a>
+            </nav>
+            <a href="#contact" class="btn btn-small">Оставить заявку</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">⚡ Заряжаю проекты скоростью</div>
+            <h1>Сайты и Telegram-боты,<br>которые <span class="accent">работают</span> на тебя</h1>
+            <p class="hero-sub">Чистый дизайн, быстрый запуск, цены от 299 руб.<br>Показываю почти готовый результат до оплаты — ты ничем не рискуешь.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn btn-primary">Получить консультацию</a>
+                <a href="#pricing" class="btn btn-ghost">Смотреть цены</a>
+            </div>
+            <div class="hero-stats">
+                <div><strong>от 299 ₽</strong><span>старт проекта</span></div>
+                <div><strong>1–3 дня</strong><span>срок запуска</span></div>
+                <div><strong>0 ₽</strong><span>если передумал</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2 class="section-title">Что я делаю</h2>
+            <p class="section-sub">От идеи до запуска — беру на себя всё</p>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Сайты под ключ</h3>
+                    <p>Лендинги, визитки, корпоративные сайты. Современный дизайн, адаптивность, SEO-основа.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🤖</div>
+                    <h3>Telegram-боты</h3>
+                    <p>Боты для заявок, магазинов, рассылок и автоматизации. Подключаю к твоему бизнесу.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚡</div>
+                    <h3>Быстрый запуск</h3>
+                    <p>Не тяну месяцами. Простой проект — за 1–3 дня. Сложный — обсуждаем сроки заранее.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Как я работаю</h2>
+            <p class="section-sub">Четыре простых шага от заявки до запуска</p>
+            <div class="steps">
+                <div class="step">
+                    <h3>Заявка</h3>
+                    <p>Ты оставляешь заявку на сайте или пишешь в Telegram. Я отвечаю в течение дня.</p>
+                </div>
+                <div class="step">
+                    <h3>Обсуждение</h3>
+                    <p>Бесплатно созваниваемся или переписываемся: уточняю задачу, сроки и называю точную цену.</p>
+                </div>
+                <div class="step">
+                    <h3>Разработка</h3>
+                    <p>Делаю сайт или бота, показываю промежуточный результат и правлю по твоим комментариям.</p>
+                </div>
+                <div class="step">
+                    <h3>Запуск</h3>
+                    <p>Публикую проект, подключаю домен и передаю все доступы. Остаюсь на связи после сдачи.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="guarantee" class="section">
+        <div class="container">
+            <div class="guarantee">
+                <div>
+                    <h2>Сначала результат — потом оплата</h2>
+                    <p>Я показываю <strong>почти готовый сайт или бота до оплаты</strong>. Ты видишь, как всё работает, вносишь правки и только потом принимаешь решение.</p>
+                    <p>Если передумал и решил отменить заказ — <strong>никто ничего не должен</strong>. Ни предоплаты, ни штрафов, ни обязательств. Расходимся без претензий.</p>
+                    <p>Мне важно, чтобы ты платил за результат, который уже увидел, а не за обещания.</p>
+                </div>
+                <div class="guarantee-badge">
+                    <div class="icon">🛡️</div>
+                    <strong>0 ₽ обязательств</strong>
+                    <span>если отменишь заказ</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Цены</h2>
+            <p class="section-sub">Прозрачно и без скрытых платежей — стоимость зависит от задачи</p>
+            <div class="grid">
+                <div class="price-card">
+                    <h3>Сайт</h3>
+                    <span class="price-tag">цена по задаче</span>
+                    <ul>
+                        <li>Одностраничник или визитка</li>
+                        <li>Адаптивный дизайн</li>
+                        <li>Форма заявки</li>
+                        <li>Запуск за 1–3 дня</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-ghost">Обсудить</a>
+                </div>
+                <div class="price-card featured">
+                    <div class="badge">Хит</div>
+                    <h3>Сайт + бот</h3>
+                    <span class="price-tag">цена по задаче</span>
+                    <ul>
+                        <li>Сайт под ключ</li>
+                        <li>Telegram-бот для заявок</li>
+                        <li>Связка «сайт → бот»</li>
+                        <li>SEO-основа</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Обсудить</a>
+                </div>
+                <div class="price-card">
+                    <h3>Бот</h3>
+                    <span class="price-tag">цена по задаче</span>
+                    <ul>
+                        <li>Telegram-бот любой сложности</li>
+                        <li>Приём заявок и оплат</li>
+                        <li>Админ-панель</li>
+                        <li>Поддержка 7 дней</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-ghost">Обсудить</a>
+                </div>
+            </div>
+            <p class="price-note">Стартовая стоимость — <strong>от 299 ₽</strong>. Точную цену называю после короткого обсуждения задачи.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Частые вопросы</h2>
+            <p class="section-sub">Коротко о том, что чаще всего спрашивают</p>
+            <div class="faq">
+                <details class="faq-item">
+                    <summary>Сколько стоит сайт или бот?</summary>
+                    <p>Стартовая стоимость — от 299 ₽. Точная цена зависит от задачи: количества страниц, функций бота, дизайна. После короткого обсуждения я называю фиксированную сумму, и она не меняется в процессе.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Можно сначала посмотреть результат, а потом платить?</summary>
+                    <p>Да. Я показываю почти готовый сайт или бота до оплаты. Ты проверяешь, как всё работает, и вносишь правки. Если результат тебя не устроит или ты передумаешь — никто ничего не должен, никаких обязательств.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Сколько времени занимает разработка?</summary>
+                    <p>Простой одностраничник или бот — 1–3 дня. Более сложный проект — обсуждаем сроки заранее и фиксируем их. Я не тяну с задачами и держу тебя в курсе на каждом этапе.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Мне нужно что-то готовить заранее?</summary>
+                    <p>Нет. Достаточно описать идею своими словами. Я помогу с текстами, структурой и подскажу, что нужно для запуска. Если есть логотип или фото — отлично, если нет — подберу решение.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Как проходит оплата?</summary>
+                    <p>Обсуждаем задачу → фиксируем цену → показываю почти готовый результат → ты проверяешь → вносим правки → финальная оплата и запуск. Без скрытых доплат и без обязательств, если решишь отменить.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Что после запуска? Вы пропадёте?</summary>
+                    <p>Нет. После сдачи я остаюсь на связи: помогаю с правками, отвечаю на вопросы по управлению сайтом или ботом. На ботов даю 7 дней поддержки бесплатно.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Работаете только в Полоцке?</summary>
+                    <p>Я нахожусь в Полоцке, но работаю удалённо со всей Беларусью и не только. Все задачи обсуждаем в Telegram или в чате на сайте — расстояние не помеха.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section section-alt">
+        <div class="container contact-wrap">
+            <div class="contact-info">
+                <h2 class="section-title">Оставь заявку</h2>
+                <p class="section-sub">Напиши, что нужно — отвечу в течение дня и бесплатно проконсультирую.</p>
+                <ul class="contact-list">
+                    <li>
+                        <a href="https://t.me/Danilkin_hdjesms" target="_blank" rel="noopener">
+                            <span class="tg-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+                                </svg>
+                            </span>
+                            @Danilkin_hdjesms
+                        </a>
+                    </li>
+                    <li><span class="icon">📍</span> г. Полоцк, Беларусь</li>
+                </ul>
+            </div>
+            <form class="form" id="leadForm">
+                <label>Имя
+                    <input type="text" name="name" placeholder="Как к тебе обращаться?" required>
+                </label>
+                <label>Telegram или email
+                    <input type="text" name="contact" placeholder="@username или email" required>
+                </label>
+                <label>Что нужно сделать?
+                    <textarea name="message" rows="4" placeholder="Опиши задачу: сайт, бот, что-то ещё..." required></textarea>
+                </label>
+                <button type="submit" class="btn btn-primary btn-full">Отправить заявку ⚡</button>
+                <p class="form-note" id="formNote"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p>© 2025 Danilkin.dev — сайты и боты с зарядом</p>
+            <p>г. Полоцк, Беларусь</p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('leadForm');
+        const note = document.getElementById('formNote');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const original = btn.textContent;
+            btn.textContent = 'Отправляю...';
+            btn.disabled = true;
+            note.textContent = '';
+            note.className = 'form-note';
+
+            const data = new FormData(form);
+
+            // === НАСТРОЙКА TELEGRAM ===
+            const TG_TOKEN = 'ВСТАВЬ_ТОКЕН_БОТА';
+            const TG_CHAT_ID = 'ВСТАВЬ_CHAT_ID';
+
+            const text = `🔔 Новая заявка с сайта!\n\n👤 Имя: ${data.get('name')}\n📱 Контакт: ${data.get('contact')}\n📝 Задача: ${data.get('message')}`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text })
+                });
+
+                if (response.ok) {
+                    note.textContent = '✅ Заявка отправлена! Я свяжусь с тобой в течение дня.';
+                    note.className = 'form-note success';
+                    form.reset();
+                } else {
+                    throw new Error('Telegram API error');
+                }
+            } catch (err) {
+                note.textContent = '⚠️ Что-то пошло не так. Напиши напрямую в Telegram: @Danilkin_hdjesms';
+                note.className = 'form-note error';
+            } finally {
+                btn.textContent = original;
+                btn.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
